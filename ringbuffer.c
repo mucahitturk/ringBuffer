@@ -6,15 +6,18 @@
 /*********************** Typedefs             *********************************/
 /*********************** Variables            *********************************/
 /*********************** Functions            *********************************/
-void initialize(ringBuffer_t *rb) {
+void initialize(ringBuffer_t *rb) 
+{
     rb->head = 0;
     rb->tail = 0;
     rb->count = 0;
 }
 
-ringBufferStatus_e enqueue(ringBuffer_t *rb, uint32_t data) {
-    if (isFull(rb)) {
-        return RINGBUFFER_ERROR_FULL_e; // Returns an error when the ring buffer is full.
+ringBufferStatus_e enqueue(ringBuffer_t *rb, uint32_t data) 
+{
+    if (isFull(rb)) 
+	{
+        return RINGBUFFER_ERROR_FULL_e; 
     }
 
     rb->buffer[rb->tail] = data;
@@ -24,8 +27,10 @@ ringBufferStatus_e enqueue(ringBuffer_t *rb, uint32_t data) {
     return RINGBUFFER_SUCCESS_e; // Data successfully enqueued.
 }
 
-ringBufferStatus_e dequeue(ringBuffer_t *rb, uint32_t *data) {
-    if (isEmpty(rb)) {
+ringBufferStatus_e dequeue(ringBuffer_t *rb, uint32_t *data) 
+{
+    if (isEmpty(rb)) 
+	{
         return RINGBUFFER_ERROR_EMPTY_e; // Returns an error when the ring buffer is empty.
     }
 
@@ -36,10 +41,12 @@ ringBufferStatus_e dequeue(ringBuffer_t *rb, uint32_t *data) {
     return RINGBUFFER_SUCCESS_e; // Data successfully dequeued.
 }
 
-bool isFull(ringBuffer_t *rb) {
+bool isFull(ringBuffer_t *rb) 
+{
     return rb->count == BUFFER_SIZE;
 }
 
-bool isEmpty(ringBuffer_t *rb) {
+bool isEmpty(ringBuffer_t *rb) 
+{
     return rb->count == 0;
 }

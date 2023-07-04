@@ -24,19 +24,45 @@ typedef enum {
 /*********************** Variables            *********************************/
 
 /*********************** Functions            *********************************/
-// Initializes the ring buffer structure to its initial state.
+/* 
+** @brief  : Initializes the ring buffer structure to its initial state.
+** @param  : rb - Pointer to the ringBuffer_t structure.
+** @return : none
+*/
 void initialize(ringBuffer_t *rb);
 
-// Enqueues data into the ring buffer and returns error status if applicable.
+/* 
+** @brief  : Enqueues data into the ring buffer and returns error status if 
+             applicable.
+** @param  : rb - Pointer to the ringBuffer_t structure.
+**           data - Data to be enqueued.
+** @return : ringBufferStatus_e - Error status indicating success or failure 
+             of the operation.
+*/
 ringBufferStatus_e enqueue(ringBuffer_t *rb, uint32_t data);
 
-// Dequeues data from the ring buffer and returns error status if applicable.
+/* 
+** @brief  : Dequeues data from the ring buffer and returns error status if 
+             applicable.
+** @param  : rb - Pointer to the eingBuffer_t structure.
+**           data - Pointer to the variable where dequeued data will be stored.
+** @return : eingBufferStatus_e - Error status indicating success or failure
+             of the operation.
+*/
 ringBufferStatus_e dequeue(ringBuffer_t *rb, uint32_t *data);
 
-// Checks if the ring buffer is full.
+/* 
+** @brief  : Checks if the ring buffer is full.
+** @param  : rb - Pointer to the ringBuffer_t structure.
+** @return : bool - True if the ring buffer is full, false otherwise.
+*/
 bool isFull(ringBuffer_t *rb);
 
-// Checks if the ring buffer is empty.
+/* 
+** @brief  : Checks if the ring buffer is empty.
+** @param  : rb - Pointer to the ringBuffer_t structure.
+** @return : bool - True if the ring buffer is empty, false otherwise.
+*/
 bool isEmpty(ringBuffer_t *rb);
 
 #endif
