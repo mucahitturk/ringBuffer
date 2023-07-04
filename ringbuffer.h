@@ -28,10 +28,10 @@ typedef enum {
 void initialize(ringBuffer_t *rb);
 
 // Enqueues data into the ring buffer and returns error status if applicable.
-ringBufferStatus_e enqueue(ringBuffer_t *rb, int data);
+ringBufferStatus_e enqueue(ringBuffer_t *rb, uint32_t data);
 
 // Dequeues data from the ring buffer and returns error status if applicable.
-ringBufferStatus_e dequeue(ringBuffer_t *rb, int *data);
+ringBufferStatus_e dequeue(ringBuffer_t *rb, uint32_t *data);
 
 // Checks if the ring buffer is full.
 bool isFull(ringBuffer_t *rb);
